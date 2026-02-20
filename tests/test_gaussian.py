@@ -5,8 +5,8 @@ from sklearn.datasets import make_blobs
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-from src.classification.naive_bayes.gaussian import GaussianNaiveBayes
-from src.utils.visualization import (
+from classification.naive_bayes.gaussian import GaussianNaiveBayes
+from utils.visualization import (
     plot_decision_boundary,
     plot_confusion_matrix,
 )
@@ -47,3 +47,6 @@ def test_gaussian_naive_bayes():
         y_pred,
         title="GaussianNB Confusion Matrix",
     )
+
+if __name__ == "__main__":
+    test_gaussian_naive_bayes()

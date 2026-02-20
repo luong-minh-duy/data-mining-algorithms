@@ -1,15 +1,11 @@
-# naive_bayes/test_multinomial.py
+# tests/naive_bayes/test_multinomial.py
 
-import os
-import sys
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from multinomial import MultinomialNaiveBayes
+from classification.naive_bayes.multinomial import MultinomialNaiveBayes
 from utils.visualization import plot_confusion_matrix
 
 
@@ -32,13 +28,11 @@ def test_multinomial_naive_bayes():
     print("\n[MultinomialNB] Accuracy:", round(acc, 4))
     assert acc > 0.7
 
-    # ===== Visualization =====
     plot_confusion_matrix(
         y_test,
         y_pred,
-        title="MultinomialNB Confusion Matrix"
+        title="MultinomialNB Confusion Matrix",
     )
-
 
 if __name__ == "__main__":
     test_multinomial_naive_bayes()

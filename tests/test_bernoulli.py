@@ -1,15 +1,11 @@
-# naive_bayes/test_bernoulli.py
+# tests/naive_bayes/test_bernoulli.py
 
-import os
-import sys
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from bernoulli import BernoulliNaiveBayes
+from classification.naive_bayes.bernoulli import BernoulliNaiveBayes
 from utils.visualization import plot_confusion_matrix
 
 
@@ -17,6 +13,7 @@ def test_bernoulli_naive_bayes():
     digits = datasets.load_digits()
     X, y = digits.data, digits.target
 
+    # Nhị phân hóa
     X_binary = (X > 8).astype(int)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -32,13 +29,11 @@ def test_bernoulli_naive_bayes():
     print("\n[BernoulliNB] Accuracy:", round(acc, 4))
     assert acc > 0.7
 
-    # ===== Visualization =====
     plot_confusion_matrix(
         y_test,
         y_pred,
-        title="BernoulliNB Confusion Matrix"
+        title="BernoulliNB Confusion Matrix",
     )
-
 
 if __name__ == "__main__":
     test_bernoulli_naive_bayes()
