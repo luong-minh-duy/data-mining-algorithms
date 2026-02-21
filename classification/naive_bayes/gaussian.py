@@ -23,6 +23,7 @@ class GaussianNaiveBayes:
         self.var_: Optional[np.ndarray] = None    # variances
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> "GaussianNaiveBayes":
+        
         X = np.asarray(X)
         y = np.asarray(y)
 
